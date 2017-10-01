@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- standard metadata -->
+      <meta charset="utf-8" />
+      <meta name="description" content="First-Order Logic exercises" />
+      <meta name="author" content="Kevin C. Klement" />
+      <meta name="copyright" content="© Kevin C. Klement" />
+      <meta name="keywords" content="logic,proof,deduction" />
+
+      <!-- facebook opengraph stuff -->
+      <meta property="og:title" content="First-Order Logic exercises" />
+      <meta property="og:image" content="sample.png" />
+      <meta property="og:description" content="First-Order Logic exercises" />
+
+      <!-- if you want to disable search indexing -->
+      <meta name="robots" content="noindex,nofollow" />
+
+      <!-- if mobile ready -->
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+
+      <!-- web icon -->
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+      <title>First-Order Logic sample proof exercises</title>
+
+    <!-- page style from https://github.com/necolas/normalize.css/ -->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+    
+    <style>
+      body {font-family: "Noto Sans";}
+      a, a:hover, a:visited, a:focus, a:active {color: #0c1c8c; text-decoration: none; font-weight: bold ;}
+      label, legend { display: inline-block; } 
+    </style>
+
+      
+      <!-- css file -->
+      <link rel="stylesheet" type="text/css" href="proofs.css" />
+      <!-- javascript file -->
+      <script type="text/javascript" charset="utf-8" src="ajax.js"></script>
+      <script type="text/javascript" charset="utf-8" src="syntax.js"></script>
+      <script type="text/javascript" charset="utf-8" src="proofs.js"></script>
+      
+      <script type="text/javascript">
+         predicateSettings = true;
+         var exSetA = [
+            {
+               "prems": [],
+               "conc": "∀xFx ∨ ¬∀xFx"
+            },
+            {
+               "prems": [],
+               "conc": "∀z(Pz ∨ ¬Pz)"
+            },
+            {
+               "prems": ["∀x(Ax → Bx)", "∃xAx"],
+               "conc": "∃xBx"
+            },
+            {
+               "prems": ["∀x(Mx ↔ Nx)", "Ma ∧ ∃xRxa"],
+               "conc": "∃xNx"
+            },
+            {
+               "prems": ["∀x∀yGxy"],
+               "conc": "∃xGxx"
+            },
+            {
+               "prems": [],
+               "conc": "∀xRxx → ∃x∃yRxy"
+            },
+            {
+               "prems": [],
+               "conc": "∀y∃x(Qy → Qx)"
+            },
+            {
+               "prems": ["Na → ∀x(Mx ↔ Ma)","Ma","¬Mb"],
+               "conc": "¬Na"
+            },
+            {
+               "prems": ["∀x∀y(Gxy → Gyx)"],
+               "conc": "∀x∀y(Gxy ↔ Gyx)"
+            },
+            {
+               "prems": ["∀x(¬Mx ∨ Ljx)", "∀x(Bx → Ljx)", "∀x(Mx ∨ Bx)"],
+               "conc": "∀xLjx"
+            }
+         ];
+         var exSetB = [
+            {
+               "prems": ["Pa ∨ Qb", "Qb → b=c", "¬Pa"],
+               "conc": "Qc"
+            },
+            {
+               "prems": ["m=n ∨ n=o", "An"],
+               "conc": "Am ∨ Ao"
+            },
+            {
+               "prems": ["∀x x=m","Rma"],
+               "conc": "∃xRxx"
+            },
+            {
+               "prems": ["∀x∀y(Rxy → x = y)"],
+               "conc": "Rab → Rba"
+            },
+            {
+               "prems": ["¬∃x¬x=m"],
+               "conc": "∀x∀y(Px → Py)"
+            },
+            {
+               "prems": ["∃xJx","∃x¬Jx"],
+               "conc": "∃x∃y¬x=y"
+            },
+            {
+               "prems": ["∀x(x=n ↔ Mx)","∀x(Ox ∨ ¬Mx)"],
+               "conc": "On"
+            },
+            {
+               "prems": ["∃xDx","∀x(x=p ↔ Dx)"],
+               "conc": "Dp"
+            },
+            {
+               "prems": ["∃x[(Kx ∧ ∀y(Ky → x=y)) ∧ Bx]","Kd"],
+               "conc": "Bd"
+            },
+            {
+               "prems": [],
+               "conc": "Pa → ∀x(Px ∨ ¬ x=a)"
+            }
+         ];
+         
+         window.onload = function() {
+            exSetA.forEach( function(p) {
+               var instLine = '';
+               var sofar = [];
+               for (var i=0; i<p.prems.length; i++) {
+                  instLine += prettyStr(p.prems[i]);
+                  if ((i+1) != p.prems.length) {
+                     instLine += ', ';
+                  }
+                  sofar.push({
+                     "wffstr" : p.prems[i],
+                     "jstr" : "Pr"
+                  });
+               }
+               var li = document.createElement("li");
+               document.getElementById("setA").appendChild(li);
+               instLine += ' ⊢ ' + prettyStr(p.conc);
+               li.innerHTML = instLine;
+               makeProof(li, sofar, p.conc);
+            });
+            exSetB.forEach( function(p) {
+               var instLine = '';
+               var sofar = [];
+               for (var i=0; i<p.prems.length; i++) {
+                  instLine += prettyStr(p.prems[i]);
+                  if ((i+1) != p.prems.length) {
+                     instLine += ', ';
+                  }
+                  sofar.push({
+                     "wffstr" : p.prems[i],
+                     "jstr" : "Pr"
+                  });
+               }
+               var li = document.createElement("li");
+               document.getElementById("setB").appendChild(li);
+               instLine += ' ⊢ ' + prettyStr(p.conc);
+               li.innerHTML = instLine;
+               makeProof(li, sofar, p.conc);
+            });
+         }
+         
+         
+      </script>
+      <style type="text/css">
+         li {
+            margin-bottom: 4ex;
+         }
+      </style>
+   </head>
+   <body>
+    <div class="container">
+      <div class="row">
+	<div class="one-half column" style="margin-top: 5%">
+
+      <h1>First-Order Logic sample proof exercises</h1>
+      <h3>Chapter 32, Exercise E</h3>
+      <p>Provide a proof of each claim.</p>
+      <ol id="setA">
+      </ol>
+
+      <h3>Chapter 34, Exercise A</h3>
+      <p>Provide a proof of each claim.</p>
+      <ol id="setB">
+      </ol>
+
+      <a href="index.html">Return to main demo page.</a>
+
+	</div>
+      </div>
+    </div>
+   </body>
+</html>

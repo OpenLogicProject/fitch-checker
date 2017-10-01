@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- standard metadata -->
+      <meta charset="utf-8" />
+      <meta name="description" content="Truth-Functional Logic exercises" />
+      <meta name="author" content="Kevin C. Klement" />
+      <meta name="copyright" content="© Kevin C. Klement" />
+      <meta name="keywords" content="logic,proof,deduction" />
+
+      <!-- facebook opengraph stuff -->
+      <meta property="og:title" content="Truth-Functional Logic exercises" />
+      <meta property="og:image" content="sample.png" />
+      <meta property="og:description" content="Truth-Functional Logic exercises" />
+
+      <!-- if you want to disable search indexing -->
+      <meta name="robots" content="noindex,nofollow" />
+
+      <!-- if mobile ready -->
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+
+      <!-- web icon -->
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+      <title>Truth-Functional Logic sample proof exercises</title>
+
+    <!-- page style from https://github.com/necolas/normalize.css/ -->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+    
+    <style>
+      body {font-family: "Noto Sans";}
+      a, a:hover, a:visited, a:focus, a:active {color: #0c1c8c; text-decoration: none; font-weight: bold ;}
+      label, legend { display: inline-block; } 
+    </style>
+
+      
+      <!-- css file -->
+      <link rel="stylesheet" type="text/css" href="proofs.css" />
+      <!-- javascript file -->
+      <script type="text/javascript" charset="utf-8" src="ajax.js"></script>
+      <script type="text/javascript" charset="utf-8" src="syntax.js"></script>
+      <script type="text/javascript" charset="utf-8" src="proofs.js"></script>
+      
+      <script type="text/javascript">
+         predicateSettings = false;
+         var exSetA = [
+            {
+               "prems": ["J → ¬J"],
+               "conc": "¬J"
+            },
+            {
+               "prems": ["Q → (Q ∧ ¬Q)"],
+               "conc": "¬Q"
+            },
+            {
+               "prems": ["A → (B → C)"],
+               "conc": "(A ∧ B) → C"
+            },
+            {
+               "prems": ["K ∧ L"],
+               "conc": "K ↔ L"
+            },
+            {
+               "prems": ["(C ∧ D) ∨ E"],
+               "conc": "E ∨ D"
+            },
+            {
+               "prems": ["A↔B","B↔C"],
+               "conc": "A↔C"
+            },
+            {
+               "prems": ["¬F→G","F→H"],
+               "conc": "G∨H"
+            },
+            {
+               "prems": ["(Z∧K) ∨ (K∧M)","K→D"],
+               "conc": "D"
+            },
+            {
+               "prems": ["P∧(Q∨R)","P→¬R"],
+               "conc": "Q∨E"
+            },
+            {
+               "prems": ["S↔T"],
+               "conc": "S↔(T∨S)"
+            },
+            {
+               "prems": ["¬(P→Q)"],
+               "conc": "¬Q"
+            },
+            {
+               "prems": ["¬(P→Q)"],
+               "conc": "P"
+            }
+         ];
+         var exSetB = [
+            {
+               "prems": ["C → (E ∧ G)", "¬C → G"],
+               "conc": "G"
+            },
+            {
+               "prems": ["M ∧ (¬N → ¬M)"],
+               "conc": "(N ∧ M) ∨ ¬M"
+            },
+            {
+               "prems": ["(Z ∧ K) ↔ (Y ∧ M)", "D ∧ (D → M)"],
+               "conc": "Y → Z"
+            },
+            {
+               "prems": ["(W ∨ X) ∨ (Y ∨ Z)","X → Y","¬Z"],
+               "conc": "W ∨ Y"
+            }
+         ];
+         
+         window.onload = function() {
+            exSetA.forEach( function(p) {
+               var instLine = '';
+               var sofar = [];
+               for (var i=0; i<p.prems.length; i++) {
+                  instLine += prettyStr(p.prems[i]);
+                  if ((i+1) != p.prems.length) {
+                     instLine += ', ';
+                  }
+                  sofar.push({
+                     "wffstr" : p.prems[i],
+                     "jstr" : "Pr"
+                  });
+               }
+               var li = document.createElement("li");
+               document.getElementById("setA").appendChild(li);
+               instLine += ' ∴ ' + prettyStr(p.conc);
+               li.innerHTML = instLine;
+               makeProof(li, sofar, p.conc);
+            });
+            exSetB.forEach( function(p) {
+               var instLine = '';
+               var sofar = [];
+               for (var i=0; i<p.prems.length; i++) {
+                  instLine += prettyStr(p.prems[i]);
+                  if ((i+1) != p.prems.length) {
+                     instLine += ', ';
+                  }
+                  sofar.push({
+                     "wffstr" : p.prems[i],
+                     "jstr" : "Pr"
+                  });
+               }
+               var li = document.createElement("li");
+               document.getElementById("setB").appendChild(li);
+               instLine += ' ⊢ ' + prettyStr(p.conc);
+               li.innerHTML = instLine;
+               makeProof(li, sofar, p.conc);
+            });
+         }
+         
+         
+      </script>
+      <style type="text/css">
+         li {
+            margin-bottom: 4ex;
+         }
+      </style>
+   </head>
+   <body>
+    <div class="container">
+      <div class="row">
+	<div class="one-half column" style="margin-top: 5%">
+
+      <h1>Truth-Functional Logic sample proof exercises</h1>
+      <h3>Chapter 15, Exercise C</h3>
+      <p>Give a proof for each of the following arguments:</p>
+      <ol id="setA">
+      </ol>
+
+      <h3>Chapter 17, Exercise B</h3>
+      <p>Prove proofs to show each of the following:</p>
+      <ol id="setB">
+      </ol>
+
+      <a href="index.html">Return to main demo page.</a>
+	</div>
+      </div>
+    </div>
+
+   </body>
+</html>

@@ -50,6 +50,7 @@ table.prooftable td.wffcell span {
 table.prooftable td.jcell input {
    font-size: inherit;
    width: 5em;
+   margin-bottom: inherit;
 }
 table.prooftable td.jcell {
    border: 1px dashed transparent;

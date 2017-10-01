@@ -7,5 +7,5 @@ $\begin{nd}
 	  \hypo[k]{b}{\enot\meta{A}}
 	  \have[l]{c2}{\meta{B}}
     \close
-    \have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
+    \have[\hskip .8em]{ab}{\meta{B}}\tnd{a-c1,b-c2}
 \end{nd}$

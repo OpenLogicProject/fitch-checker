@@ -3,5 +3,5 @@ $\begin{nd}
                 \hypo[i]{a}{\meta{A}}
                 \have[j]{b}{\meta{B}}
         \close
-        \have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+        \have[\hskip .8em]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
 \end{nd}$

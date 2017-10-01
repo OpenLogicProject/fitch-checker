@@ -3,5 +3,5 @@ $\begin{nd}
 	\hypo[i]{a}{\meta{A}}
 	\have[j]{nb}{\ered}
 \close
-\have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
+\have[\hskip .8em]{na}{\enot\meta{A}}\ni{a-nb}
 \end{nd}$

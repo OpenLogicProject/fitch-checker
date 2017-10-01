@@ -1,6 +1,6 @@
 <?php
 
-$tfl_rules = array('∧I','∧E','⊥I','⊥E','¬I','¬E','→I','→E','TND','∨I','∨E','↔I','↔E','DS','R','MT','DNE','DeM','Pr','Hyp','ECQ','IP');
+$tfl_rules = array('∧I','∧E','⊥I','⊥E','¬I','¬E','→I','→E','TND','∨I','∨E','↔I','↔E','DS','R','MT','DNE','DeM','Pr','Hyp','X','IP','LEM');
 $fol_rules = array('∀E','∀I','∃I','∃E','=I','=E','CQ');
 
 $cite_nums = array(
@@ -18,7 +18,7 @@ $cite_nums = array(
    "↔I" => array(0, 2),
    "↔E" => array(2, 0),
    "DS" => array(2, 0),
-    "R" => array(1, 0),
+   "R" => array(1, 0),
    "MT" => array(2, 0),
    "DNE" => array(1, 0),
    "DeM" => array(1, 0),
@@ -31,8 +31,9 @@ $cite_nums = array(
    "CQ" => array(1, 0),
    "Hyp" => array(0,0),
    "Pr" => array(0,0),
-   "ECQ" => array(1, 0),
-   "IP" => array(0, 1)
+   "X" => array(1, 0),
+   "IP" => array(0, 1),
+   "LEM" => array(0, 2)
 );
 
 function followsByCQThisWay($a, $b) {
@@ -748,6 +749,8 @@ function check_proof($pr, $numprems, $conc) {
             break;
 	 case "TND":
             $worked = followsByTND( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->subps[0]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[0]->spend - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[1]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[1]->spend - 1  )]->wff);            
+	 case "LEM":
+            $worked = followsByTND( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->subps[0]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[0]->spend - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[1]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[1]->spend - 1  )]->wff);            
             break;
          case "∨I":
             $worked = followsByAdd($fpr[$i]->wff, $fpr[( $fpr[$i]->j->lines[0] - 1  )]->wff);
@@ -761,7 +764,7 @@ function check_proof($pr, $numprems, $conc) {
          case "↔E":
             $worked = followsByBiconElim( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->lines[0] - 1  )]->wff, $fpr[( $fpr[$i]->j->lines[1] - 1  )]->wff);
             break;
-         case "ECQ":
+         case "X":
             $worked = ( $fpr[ ($fpr[$i]->j->lines[0] - 1) ]->wff->wffType == "splat");
             break;
 	 case "DS":

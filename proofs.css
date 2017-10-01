@@ -38,6 +38,7 @@ table.prooftable td.midcell, td.wffcell {
 table.prooftable td.wffcell input {
    font-size: inherit;
    width: 10em;
+   margin-bottom: inherit;
 }
 table.prooftable td.wffcell {
    min-width: 11em;

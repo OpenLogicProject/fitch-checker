@@ -1,0 +1,7 @@
+$\begin{nd}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
+
+	\have[m]{a}{\meta{A}}
+\\	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+\end{nd}$

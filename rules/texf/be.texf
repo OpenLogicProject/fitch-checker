@@ -1,0 +1,9 @@
+$\begin{nd}
+	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\\	\have[n]{a}{\meta{A}}
+	\have[\ ]{b}{\meta{B}} \be{ab,a}
+
+	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\\	\have[n]{a}{\meta{B}}
+	\have[\ ]{b}{\meta{A}} \be{ab,a}
+\end{nd}$

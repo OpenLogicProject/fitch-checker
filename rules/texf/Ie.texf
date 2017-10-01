@@ -1,0 +1,9 @@
+$\begin{nd}
+  \have[m]{e}{\meta{a}=\meta{b}}
+	\have[n]{a}{\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)}
+	\have[\ ]{ea1}{\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{=E}{e,a}
+
+	\have[m]{e}{\meta{a}=\meta{b}}
+\\	\have[n]{a}{\meta{A}(\ldots \meta{b} \ldots \meta{b}\ldots)}
+	\have[\ ]{ea2}{\meta{A}(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{=E}{e,a}
+\end{nd}$

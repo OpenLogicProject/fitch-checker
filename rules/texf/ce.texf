@@ -1,0 +1,6 @@
+$\begin{nd}
+	\have[m]{ab}{\meta{A}\eif\meta{B}}
+\\	\have[n]{a}{\meta{A}}
+	\have[\ ]{b}{\meta{B}} \ce{ab,a}
+\end{nd}$
+

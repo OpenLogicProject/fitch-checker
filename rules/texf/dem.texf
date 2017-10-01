@@ -1,0 +1,13 @@
+$\begin{nd}
+	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
+	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
+
+	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
+\\	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
+
+	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
+\\	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
+
+	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
+\\	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
+\end{nd}$

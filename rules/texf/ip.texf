@@ -1,0 +1,7 @@
+$\begin{nd}
+\open
+	\hypo[i]{a}{\enot\meta{A}}
+	\have[j]{nb}{\ered}
+\close
+\have[\ ]{na}{\meta{A}}\ip{a-nb}
+\end{nd}$

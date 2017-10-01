@@ -1,0 +1,8 @@
+$\begin{nd}
+	\have[m]{ab}{\meta{A}\eand\meta{B}}
+\\	\have[\ ]{a}{\meta{A}} \ae{ab}
+
+	\have[m]{ab}{\meta{A}\eand\meta{B}}
+\\	\have[\ ]{b}{\meta{B}} \ae{ab}
+\end{nd}$
+

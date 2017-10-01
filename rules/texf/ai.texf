@@ -1,0 +1,5 @@
+$\begin{nd}
+        \have[m]{a}{\meta{A}}
+        \have[n]{b}{\meta{B}}
+        \have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
+\end{nd}$

@@ -1,0 +1,11 @@
+$\begin{nd}
+    \open
+	  \hypo[i]{a}{\meta{A}}
+	  \have[j]{c1}{\meta{B}}
+    \close
+    \open
+	  \hypo[k]{b}{\enot\meta{A}}
+	  \have[l]{c2}{\meta{B}}
+    \close
+    \have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
+\end{nd}$

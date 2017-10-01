@@ -1,0 +1,12 @@
+$\begin{nd}
+	\have[m]{ab}{\meta{A}\eor\meta{B}}
+\\	\open
+		\hypo[i]{a}{\meta{A}}
+		\have[j]{c1}{\meta{C}}
+	\close
+	\open
+		\hypo[k]{b}{\meta{B}}
+		\have[l]{c2}{\meta{C}}
+	\close
+	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
+\end{nd}$

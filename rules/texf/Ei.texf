@@ -1,0 +1,4 @@
+$\begin{nd}
+	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
+	\have[\ ]{c}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)} \Ei{a}
+\end{nd}$

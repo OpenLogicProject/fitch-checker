@@ -1,0 +1,5 @@
+$\begin{nd}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{c}{\meta{A}} \by{R}{a}
+\end{nd}$
+

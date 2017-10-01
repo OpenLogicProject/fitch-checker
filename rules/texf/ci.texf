@@ -1,0 +1,7 @@
+$\begin{nd}
+        \open
+                \hypo[i]{a}{\meta{A}}
+                \have[j]{b}{\meta{B}}
+        \close
+        \have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+\end{nd}$

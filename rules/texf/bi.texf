@@ -1,0 +1,11 @@
+$\begin{nd}
+	\open
+		\hypo[i]{a1}{\meta{A}} 
+		\have[j]{b1}{\meta{B}}
+	\close
+	\open
+		\hypo[k]{b2}{\meta{B}}
+		\have[l]{a2}{\meta{A}}
+	\close
+	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+\end{nd}$

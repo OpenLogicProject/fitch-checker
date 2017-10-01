@@ -1,0 +1,4 @@
+$\begin{nd}
+    \have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
+	\have[\ ]{c}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)} \Ai{a}
+\end{nd}$

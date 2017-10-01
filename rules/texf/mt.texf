@@ -1,0 +1,6 @@
+$\begin{nd}
+	\have[m]{ab}{\meta{A}\eif\meta{B}}
+	\have[n]{a}{\enot\meta{B}}
+	\have[\ ]{b}{\enot\meta{A}} \by{MT}{ab,a}
+\end{nd}$
+

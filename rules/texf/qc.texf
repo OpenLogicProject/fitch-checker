@@ -1,0 +1,13 @@
+$\begin{nd}
+	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
+	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\cq{ab}
+
+	\have[m]{ab}{\enot \exists \meta{x}  \meta{A}}
+\\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\cq{ab}
+
+	\have[m]{ab}{\exists \meta{x}\enot\meta{A}}
+\\	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\cq{ab}
+
+	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
+\\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\cq{ab}
+\end{nd}$

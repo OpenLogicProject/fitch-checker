@@ -1,0 +1,5 @@
+$\begin{nd}
+\have[m]{a}{\meta{A}}
+\\ \have[n]{na}{\enot\meta{A}}
+\have[ ]{bot}{\ered}\ri{a, na}
+\end{nd}$

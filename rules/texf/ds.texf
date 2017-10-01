@@ -1,0 +1,10 @@
+$\begin{nd}
+	\have[m]{ab}{\meta{A} \eor \meta{B}}
+	\have[n]{nb}{\enot \meta{A}}
+	\have[\ ]{con}{\meta{B}}\by{DS}{ab, nb}
+
+	\have[m]{ab}{\meta{A} \eor \meta{B}}
+\\	\have[n]{nb}{\enot \meta{B}}
+	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
+\end{nd}$
+

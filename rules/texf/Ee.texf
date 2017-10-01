@@ -1,0 +1,8 @@
+$\begin{nd}
+	\have[m]{a}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
+	\open	
+		\hypo[i]{b}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
+		\have[j]{c}{\meta{B}}
+	\close
+	\have[\ ]{d}{\meta{B}} \Ee{a,b-c}
+\end{nd}$

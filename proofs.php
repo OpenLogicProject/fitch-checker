@@ -1,6 +1,6 @@
 <?php
 
-$tfl_rules = array('∧I','∧E','⊥I','⊥E','¬I','→I','→E','TND','∨I','∨E','↔I','↔E','DS','R','MT','DNE','DeM','Pr','Hyp');
+$tfl_rules = array('∧I','∧E','⊥I','⊥E','¬I','¬E','→I','→E','TND','∨I','∨E','↔I','↔E','DS','R','MT','DNE','DeM','Pr','Hyp','ECQ','IP');
 $fol_rules = array('∀E','∀I','∃I','∃E','=I','=E','CQ');
 
 $cite_nums = array(
@@ -9,6 +9,7 @@ $cite_nums = array(
    "⊥I" => array(2, 0),
    "⊥E" => array(1, 0),
    "¬I" => array(0, 1),
+   "¬E" => array(2, 0),
    "→I" => array(0, 1),
    "→E" => array(2, 0),
    "TND" => array(0, 2),
@@ -29,7 +30,9 @@ $cite_nums = array(
    "=E" => array(2, 0),
    "CQ" => array(1, 0),
    "Hyp" => array(0,0),
-   "Pr" => array(0,0)
+   "Pr" => array(0,0),
+   "ECQ" => array(1, 0),
+   "IP" => array(0, 1)
 );
 
 function followsByCQThisWay($a, $b) {
@@ -337,6 +340,16 @@ function followsByRAA($c, $a, $b) {
       ($c->mainOp == "¬")
       &&
       (sameWff($c->rightSide, $a))
+      &&
+      ($b->wffType == "splat")
+   );
+}
+
+function followsByIP($c, $a, $b) {
+   return (
+      ($a->mainOp == "¬")
+      &&
+      (sameWff($a->rightSide, $c))
       &&
       ($b->wffType == "splat")
    );
@@ -727,7 +740,13 @@ function check_proof($pr, $numprems, $conc) {
          case "¬I":
             $worked = followsByRAA( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->subps[0]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[0]->spend - 1  )]->wff);
             break;
-         case "TND":
+         case "¬E":
+            $worked = followsByContraIntro($fpr[$i]->wff, $fpr[( $fpr[$i]->j->lines[0] - 1  )]->wff, $fpr[( $fpr[$i]->j->lines[1] - 1  )]->wff);
+            break;
+         case "IP":
+            $worked = followsByIP( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->subps[0]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[0]->spend - 1  )]->wff);
+            break;
+	 case "TND":
             $worked = followsByTND( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->subps[0]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[0]->spend - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[1]->spstart - 1  )]->wff, $fpr[( $fpr[$i]->j->subps[1]->spend - 1  )]->wff);            
             break;
          case "∨I":
@@ -742,7 +761,10 @@ function check_proof($pr, $numprems, $conc) {
          case "↔E":
             $worked = followsByBiconElim( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->lines[0] - 1  )]->wff, $fpr[( $fpr[$i]->j->lines[1] - 1  )]->wff);
             break;
-         case "DS":
+         case "ECQ":
+            $worked = ( $fpr[ ($fpr[$i]->j->lines[0] - 1) ]->wff->wffType == "splat");
+            break;
+	 case "DS":
             $worked = followsByDS( $fpr[$i]->wff, $fpr[( $fpr[$i]->j->lines[0] - 1  )]->wff, $fpr[( $fpr[$i]->j->lines[1] - 1  )]->wff );
             break;
          case "R":

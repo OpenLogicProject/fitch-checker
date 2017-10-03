@@ -1,5 +1,5 @@
 $\begin{nd}
-\have[m]{a}{\meta{A}}
-\\ \have[n]{na}{\enot\meta{A}}
-\have[ ]{bot}{\ered}\ri{a, na}
+\have[m]{na}{\enot\meta{A}}
+\\ \have[n]{a}{\meta{A}}
+\have[ ]{bot}{\ered}\ri{na, a}
 \end{nd}$

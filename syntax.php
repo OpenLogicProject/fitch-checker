@@ -470,7 +470,7 @@ function sameWff($a, $b) {
       return true;
    }
    if ($a->wffType == "identity") {
-      return (($a->myTerms[0] = $b->myTerms[0]) && ($a->myTerms[1] = $b->myTerms[1]));
+      return (($a->myTerms[0] == $b->myTerms[0]) && ($a->myTerms[1] == $b->myTerms[1]));
    }
    if ($a->wffType == "atomic") {
       if ($predicateSettings) {

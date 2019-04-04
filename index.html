@@ -127,7 +127,7 @@
 	<div class="eight columns">
 	  
 	  <h3>Create a new problem</h3>
-
+	  Select if TFL or FOL syntax:<br />
 	  <input type="radio" name="tflfol" id="tflradio" checked /> <label for="tflradio">TFL</label>
 	  <input type="radio" name="tflfol" id="folradio" /> <label for="folradio">FOL</label><br />
 	  Premises (separate with “,” or “;”):<br />
@@ -151,6 +151,8 @@
 	  <h3>Instructions</h3>
       
 	  <table id="symkey">
+	    <tr><td>TFL atomic sentences:<br />(single uppercase letters)</td><td><span class="tt">A, B, X, etc.</span></td></tr>
+	    <tr><td>FOL atomic sentences:<br />(single uppercase letters followed by lowercase<br /> letters a–w without parentheses, or identities)</td><td><span class="tt">Pa, Acdc, a = d, etc.</span></td></tr>
             <tr><td>For negation you may use any of the symbols:</td><td> <span class="tt">¬ ~ ∼ - −</span></td></tr>
             <tr><td>For conjunction you may use any of the symbols:</td><td> <span class="tt">∧ ^ &amp; . · *</span></td></tr>
             <tr><td>For disjunction you may use any of the symbols:</td><td> <span class="tt">∨ v</span></td></tr>

@@ -55,7 +55,7 @@
         if (prems[a] != '') {
           var w = parseIt(fixWffInputStr(prems[a]));
           if (!(w.isWellFormed)) {
-            alert('Premise ' + (a+1) + ' is not well formed.');
+            alert('Premise ' + (a+1) + ', ' + fixWffInputStr(prems[a]) + ', is not well formed.');
             return;
             }
           if ((predicateSettings) && (!(w.allFreeVars.length == 0))) {
@@ -71,7 +71,7 @@
       var conc = fixWffInputStr(document.getElementById("probconc").value);
       var cw = parseIt(conc);
       if (!(cw.isWellFormed)) {
-        alert('Conclusion is not well formed.');
+        alert('The conclusion ' + fixWffInputStr(conc) + ', is not well formed.');
         return;
       }
       if ((predicateSettings) && (!(cw.allFreeVars.length == 0))) {
@@ -152,7 +152,11 @@
       
 	  <table id="symkey">
 	    <tr><td>TFL atomic sentences:<br />(single uppercase letters)</td><td><span class="tt">A, B, X, etc.</span></td></tr>
-	    <tr><td>FOL atomic sentences:<br />(single uppercase letters followed by lowercase<br /> letters a–w without parentheses, or identities)</td><td><span class="tt">Pa, Acdc, a = d, etc.</span></td></tr>
+	    <tr><td>FOL atomic sentences:<br />(single uppercase letters
+	    <i>other than A or E</i> followed by<br /> lowercase letters a–w
+	    without parentheses, or identities)</td><td><span class="tt">Pa,
+	    Fcdc, a
+	    = d, etc.</span></td></tr>
             <tr><td>For negation you may use any of the symbols:</td><td> <span class="tt">¬ ~ ∼ - −</span></td></tr>
             <tr><td>For conjunction you may use any of the symbols:</td><td> <span class="tt">∧ ^ &amp; . · *</span></td></tr>
             <tr><td>For disjunction you may use any of the symbols:</td><td> <span class="tt">∨ v</span></td></tr>

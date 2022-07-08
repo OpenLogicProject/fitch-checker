@@ -44,9 +44,15 @@
     <!-- font awesome -->
     <!-- <script src="https://use.fontawesome.com/b8ae54b59e.js"></script> -->
     <script type="text/javascript">
-      function createProb() {
+    function createProb() {
+      createProbFrom(
+        document.getElementById("probpremises").value,
+        document.getElementById("probconc").value
+      );
+    }
+
+    function createProbFrom(pstr, conc) {
       predicateSettings = (document.getElementById("folradio").checked);
-      var pstr = document.getElementById("probpremises").value;
       pstr = pstr.replace(/^[,;\s]*/,'');
       pstr = pstr.replace(/[,;\s]*$/,'');
       var prems = pstr.split(/[,;\s]*[,;][,;\s]*/);
@@ -57,7 +63,7 @@
           if (!(w.isWellFormed)) {
             alert('Premise ' + (a+1) + ', ' + fixWffInputStr(prems[a]) + ', is not well formed.');
             return;
-            }
+          }
           if ((predicateSettings) && (!(w.allFreeVars.length == 0))) {
             alert('Premise ' + (a+1) + ' is not closed.');
             return;
@@ -68,8 +74,7 @@
           });
         }
       }
-      var conc = fixWffInputStr(document.getElementById("probconc").value);
-      var cw = parseIt(conc);
+      var cw = parseIt(fixWffInputStr(conc));
       if (!(cw.isWellFormed)) {
         alert('The conclusion ' + fixWffInputStr(conc) + ', is not well formed.');
         return;
@@ -91,7 +96,21 @@
       var tp = document.getElementById("theproof");
       tp.innerHTML = '';
       makeProof(tp, sofar, wffToString(cw, false));
+    }
+
+    var params = {};
+    location.search.substring(1).split("&").forEach(function(arg) {
+      var eq = arg.indexOf("=")
+      var key = decodeURIComponent(arg.substring(0, eq) || arg);
+      var val = decodeURIComponent(arg.substring(eq + 1));
+      if (key) params[key] = val;
+    });
+
+    window.addEventListener("load", function(e) {
+      if (params.prems) {
+        createProbFrom(params.prems, params.conc || "#");
       }
+    });
     </script>
     <style type="text/css">
       #probpremises {

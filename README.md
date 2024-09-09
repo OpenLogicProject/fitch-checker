@@ -1,3 +1,7 @@
+# DEPRECATION WARNING
+
+This project is not in active development. For the successor, please see LogicPenguin (<https://github.com/frabjous/logicpenguin>).
+
 # fitch-checker
 
 Kevin Klement's JavaScript/PHP Fitch-style natural deduction proof editor and checker

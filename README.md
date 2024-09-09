@@ -31,10 +31,12 @@ See it in action at
 
 To install, put the entire contents of this repository into a
 directory served to the web. It requires that your web server runs
-*PHP 7*.
+*PHP 7+*.
 
 ## Credits
 
-The original code was written by [Kevin
-Klement](https://people.umass.edu/klement/) and is available
-[here](https://the21stcenturymonads.net/forallx/).
+This code was originally written by Kevin C. Klement <https://people.umass.edu/klement>.
+
+# DEPRECATION WARNING
+
+This project is not in active development. For the successor, please see LogicPenguin (<https://github.com/frabjous/logicpenguin>).
